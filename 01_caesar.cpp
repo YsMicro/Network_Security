@@ -7,42 +7,42 @@
 #include <string>
 using namespace std;
 
-string caesar_encrypt(string s, int key);
-string caesar_decipher(string s, int key);
+string caesar_encrypt(string string1, int key);
+string caesar_decipher(string string1, int key);
 
 int caesar_main()
 {
-    string s;
+    string string1;
     int key;//密钥key
     cout << "输入密钥 K ：";
     cin>>key;
     cin.get();
     cout << "输入文本：";
-    getline(cin,s);
+    getline(cin,string1);
     cout << "1-加密\n2-解密" << endl;
     int i;
     cin >> i;
     if (i == 1)
-        cout << "密文为：" << caesar_encrypt(s, key) << endl;
+        cout << "密文为：" << caesar_encrypt(string1, key) << endl;
     else
-        cout << "明文为：" << caesar_decipher(s, key) << endl;
+        cout << "明文为：" << caesar_decipher(string1, key) << endl;
     return 0;
 }
 
 
-string caesar_encrypt(string s, int key){//凯撒加密
+string caesar_encrypt(string string1, int key){//凯撒加密
     key = (key + 26) % 26;
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] == ' ')continue;
-        else if(islower(s[i]))
-            s[i] = (s[i] - 'a' + key) % 26 + 'a';
-        else if(isupper(s[i]))
-            s[i] = (s[i] - 'A' + key) % 26 + 'A';
+    for(char & i : string1){
+        if(i == ' ')continue;
+        else if(islower(i))
+            i = (i - 'a' + key) % 26 + 'a';
+        else if(isupper(i))
+            i = (i - 'A' + key) % 26 + 'A';
     }
-    return s;
+    return string1;
 }
 
 
-string caesar_decipher(string s, int key){//凯撒解密
-    return caesar_encrypt(s,26 - key);
+string caesar_decipher(string string1, int key){//凯撒解密
+    return caesar_encrypt(string1,26 - key);
 }

@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Network_Security main.cpp
         head.h
-        01_caesar.cpp)
+        01_caesar.cpp
+        02_vigenere.cpp
+)

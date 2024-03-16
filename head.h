@@ -4,5 +4,7 @@
 
 #ifndef NETWORK_SECURITY_HEAD_H
 #define NETWORK_SECURITY_HEAD_H
+
 int caesar_main();
+int vigenere_main();
 #endif //NETWORK_SECURITY_HEAD_H
