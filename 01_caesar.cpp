@@ -24,7 +24,7 @@ int caesar_main()
     cin >> i;
     if (i == 1)
         cout << "密文为：" << caesar_encrypt(string1, key) << endl;
-    else
+    if (i == 2)
         cout << "明文为：" << caesar_decipher(string1, key) << endl;
     return 0;
 }

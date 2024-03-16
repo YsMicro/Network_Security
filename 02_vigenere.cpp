@@ -7,8 +7,8 @@
 #include <string>
 using namespace std;
 
-string encrypt(string plainText, string key);
-string decrypt(string cipherText, string key);
+string vigenere_encrypt(string plainText, string key);
+string vigenere_decrypt(string cipherText, string key);
 
 int vigenere_main() {
     string plainText, key;
@@ -22,8 +22,8 @@ int vigenere_main() {
         cout << "输入密钥：" << endl;
 //        cin.get();
         getline(cin, key);
-        cout << "输出密文：" <<
-        encrypt(plainText, key) << endl;
+        string a = vigenere_encrypt(plainText, key);
+        cout << "输出密文：" << a << endl;
     }
     if (i == 2) {
         cout << "输入密文：" << endl;
@@ -31,16 +31,15 @@ int vigenere_main() {
         getline(cin, plainText);
         cout << "输入密钥：" << endl;
         getline(cin, key);
-        cout << "输出明文：" <<
-        decrypt(plainText, key) << endl;
+        cout << "输出明文：" << vigenere_decrypt(plainText, key) << endl;
     }
 
     return 0;
 }
 
-string encrypt(string plainText, string key)
+string vigenere_encrypt(string plainText, string key)
 {
-    string cipherText = "";
+    string cipherText;
     int key_len = key.size(), plainText_len = plainText.size(), s = 0;
     for (int i = 0; i < plainText_len; i++)
     {
@@ -66,9 +65,9 @@ string encrypt(string plainText, string key)
 }
 
 //解密
-string decrypt(string cipherText, string key)
+string vigenere_decrypt(string cipherText, string key)
 {
-    string plainText = "";
+    string plainText;
     int key_len = key.size(), cipherText_len = cipherText.size(), s = 0;
     for (int i = 0; i < cipherText_len; i++)
     {
